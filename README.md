@@ -1,45 +1,47 @@
-# WheelWander - Motorcycle Rental System 🏍️
+# WheelWander
 
-WheelWander es una solución web de nivel empresarial desarrollada en **ASP.NET Core MVC**. El sistema está diseñado para digitalizar el proceso de alquiler de motocicletas, facilitando la interacción entre clientes y proveedores de servicios de movilidad.
+Sistema web de alquiler de motocicletas desarrollado con ASP.NET Core MVC. Reúne la consulta del catálogo, las reservas y la administración de la flota en una aplicación con vistas Razor.
 
-## ✨ Características Principales
+## Funcionalidades
 
-### 👤 Para Clientes
-* **Catálogo Dinámico:** Exploración de motocicletas disponibles con filtros por marca y especificaciones.
-* **Sistema de Reservas:** Proceso de reserva intuitivo con cálculo automático de costos.
-* **Gestión de Perfil:** Registro, inicio de sesión y actualización de datos personales.
-* **Notificaciones:** Confirmaciones vía correo electrónico integradas.
+- Catálogo de motocicletas y gestión de reservas.
+- Registro, inicio de sesión y administración de usuarios.
+- Gestión de motocicletas y consulta de información del negocio.
+- Exportación a Excel y generación de documentos PDF.
+- Servicios de correo electrónico y carga de imágenes mediante ImgBB.
 
-### 🛡️ Para Administradores
-* **Gestión de Inventario (CRUD):** Registro, edición e inhabilitación de motocicletas en la flota.
-* **Control de Usuarios:** Administración de cuentas y roles (Admin/Cliente).
-* **Dashboard de Ganancias:** Visualización de estadísticas financieras y métricas del negocio.
-* **Reportes Avanzados:** * Exportación de datos de usuarios a **Excel**.
-    * Generación de comprobantes de reserva en **PDF**.
-* **Gestión Multimedia:** Integración con la API de ImgBB para el almacenamiento de imágenes de la flota en la nube.
+## Tecnologías
 
-## 🛠️ Tecnologías Utilizadas
+C#, .NET 8, ASP.NET Core MVC, SQL Server, Razor, Bootstrap y jQuery. El proyecto incluye bibliotecas de acceso a SQL Server, ClosedXML, QuestPDF, iText y MailKit.
 
-* **Framework:** .NET 8.0 / ASP.NET Core MVC
-* **Lenguaje:** C#
-* **Base de Datos:** Microsoft SQL Server
-* **Acceso a Datos:** Entity Framework Core
-* **Frontend:** HTML5, CSS3, JavaScript, jQuery, Bootstrap 5
-* **Servicios Externos:** * **ImgBB API** (Carga de imágenes)
-    * **SMTP Service** (Envío de correos)
-    * **EPPlus / ClosedXML** (Generación de Excel)
+## Inicio local
 
-## 📂 Estructura del Proyecto
+1. Instala el SDK de .NET 8 y prepara una instancia de SQL Server.
+2. Revisa la conexión en `ProyectoWheelWander/Datos/ConexionDB.cs` y configura una base de datos compatible con las consultas del proyecto.
+3. Configura los servicios de correo e imágenes en tu entorno local antes de utilizar esas funciones.
+4. Restaura y ejecuta la aplicación:
 
-* `/Controllers`: Lógica de navegación y procesamiento de solicitudes.
-* `/Datos`: Capa de persistencia y conexión a SQL Server.
-* `/Models`: Modelos de datos y ViewModels para la transferencia de información.
-* `/Views`: Vistas desarrolladas con el motor Razor (CSHTML).
-* `/Services`: Servicios inyectados para manejo de Email e Imágenes.
-* `/wwwroot`: Archivos estáticos (CSS personalizado, JS y multimedia).
+```bash
+dotnet restore ProyectoWheelWander.sln
+dotnet run --project ProyectoWheelWander/ProyectoWheelWander.csproj
+```
 
-## ⚙️ Configuración e Instalación
+Utiliza la URL que indique la consola. La puesta en marcha requiere preparar la base de datos; este repositorio no incluye un script SQL de inicialización.
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone [https://github.com/sebastianmejia1203/proyectowheelwander.git](https://github.com/sebastianmejia1203/proyectowheelwander.git)
+## Estructura
+
+| Ruta | Contenido |
+| --- | --- |
+| `ProyectoWheelWander/Controllers/` | Controladores MVC |
+| `ProyectoWheelWander/Datos/` | Consultas y conexión a SQL Server |
+| `ProyectoWheelWander/Models/` | Modelos y datos para las vistas |
+| `ProyectoWheelWander/Views/` | Vistas Razor |
+| `ProyectoWheelWander/Services/` | Servicios de correo y carga de imágenes |
+| `ProyectoWheelWander/wwwroot/` | Recursos estáticos |
+
+## Compilación
+
+```bash
+dotnet build ProyectoWheelWander.sln
+```
+
